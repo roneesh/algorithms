@@ -25,6 +25,9 @@ function quickSort(arr) {
 	return sort;
 }
 
-var test1 = [9,7,5,11,11,11,12,11,2,14,3,10,6,14];
+var test = [];
+for (var i = 0; i < 100; i++) {
+	test[i] = Math.floor(Math.random() * 500)
+}
 
-console.log(quickSort(test1))
+console.log(quickSort(test))
