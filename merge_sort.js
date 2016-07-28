@@ -5,8 +5,7 @@ function merge_sort(arr) {
 
 	if (arr.length === 1) return arr;
 
-	var mid = Math.floor( (arr.length - 1) / 2);
-	if (arr.length === 2) mid = 1;
+	var mid = Math.floor( (arr.length) / 2);
 
 	return sort(merge_sort(arr.slice(0, mid)), merge_sort(arr.slice(mid)));
 }
