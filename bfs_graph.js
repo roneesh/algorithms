@@ -1,5 +1,7 @@
 var Queue = require('./queue');
 
+/* This algo is in process! */
+
 // Our graph, nodes are indicated by number
 /*
 		 0
