@@ -1,3 +1,14 @@
+/* 
+This is a merge sort which only operates on the, 
+array itself, no copies made.
+
+Also it's recursion is different, the function only 
+runs of it's not the base case, if it is the base case,
+then the mergeSort does nothing. The base case is still
+just when the start index and end index is just 1 away,
+which means our array is of length 1
+*/
+
 function mergeSort(alist, start, end) {
 	if (end - start > 1) {
 		var mid = start + Math.floor((end - start) / 2);
