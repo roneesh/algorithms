@@ -2,11 +2,10 @@ var data = [3,1,2,4,7,3,2,1,65,7,3,5,693,2];
 
 function merge_sort(arr) {
 	// if (arr.length === 0) throw 'array is empty'
-
+	console.log(arr);
 	if (arr.length === 1) return arr;
 
 	var mid = Math.floor( (arr.length - 1) / 2);
-	if (arr.length === 2) mid = 1;
 
 	return sort(merge_sort(arr.slice(0, mid)), merge_sort(arr.slice(mid)));
 }

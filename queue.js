@@ -23,10 +23,12 @@ Queue.prototype.print = function() {
 	return '';
 }
 
-var q = new Queue();
-q.enqueue({'foo' : 'bar'});
-q.enqueue({'baz' : 'buzz'});
-q.enqueue('strrrrring');
-q.print();
-q.dequeue();
-q.print();
+// var q = new Queue();
+// q.enqueue({'foo' : 'bar'});
+// q.enqueue({'baz' : 'buzz'});
+// q.enqueue('strrrrring');
+// q.print();
+// q.dequeue();
+// q.print();
+
+module.exports = Queue;
