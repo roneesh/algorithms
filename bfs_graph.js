@@ -1,16 +1,14 @@
 var Queue = require('./queue');
 
-/* This algo is in process! */
-
 // Our graph, nodes are indicated by number
 /*
 		 0
 	    / \
 	   /  \
 	  1   2
-	 /
-	/
-   3
+	 /	  \
+	/	  \
+   3	  4
 */
 //So in this graph, node 0 only connects to node 1
 //node 1 connects to node 0, 3
@@ -20,8 +18,9 @@ var Queue = require('./queue');
 var fourNodeGraph = [
 	[1,2],	// node 0, connects to node 1 & 2
 	[0,3],	// node 1, connects to node 0 & 3
-	[0],  	// node 2, connects to node 0
-	[1]		// node 3, connects to node 1
+	[0,4],  // node 2, connects to node 0 & 4
+	[1],	// node 3, connects to node 1
+	[2]		// node 4, connects to node 2
 ];
 
 // Let's make our source node 0
@@ -31,7 +30,8 @@ var fourNodeGraph = [
 	  { distance: 0, predecessor: null},
 	  { distance: 1, predecessor: 0},
 	  { distance: 1, predecessor: 0},
-	  { distance: 2, predecessor: 1}
+	  { distance: 2, predecessor: 1},
+	  { distance: 2, predecessor: 2}
    ]
 */
 
@@ -46,15 +46,13 @@ function BFS(graph, sourceIndex) {
 	for (var i = 0; i < graph.length; i++) {
 		results.push({
 			distance: null,
-			predecessor: null,
-			explored: null
+			predecessor: null
 		});
 	}
 
 	// this is the root node of our graph, so it's 0
 	// units away from itself
 	results[sourceIndex].distance = sourceDistance;
-	results[sourceIndex].explored = true;
 
 	var q = new Queue();
 	var node = graph[sourceIndex];
@@ -62,23 +60,20 @@ function BFS(graph, sourceIndex) {
 	q.print()
 	while (!q.isEmpty()) {
 		sourceDistance++;
-		var vert = q.dequeue();
+		var vert = q.dequeue(),
+			predecessor = graph.indexOf(vert);
 		vert.forEach(function(node) {
-			if (!results[node].explored) {
-				// results[node].predecessor = 
+			if (results[node].distance === null) {
 				results[node].distance = sourceDistance;
-				results[node].explored = true;
+				results[node].predecessor = predecessor;
 				q.enqueue(graph[node]);
 			} 
 		});
 		q.print()
-		sourceDistance++;
 	}
 
 	return results;
 }
 
-var bfs = BFS(fourNodeGraph, 0);
-
+var bfs = BFS(fourNodeGraph, 4);
 console.log(bfs);
-
