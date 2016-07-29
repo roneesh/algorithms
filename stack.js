@@ -1,5 +1,5 @@
-function Stack() {
-	this.items = [];
+function Stack(initialStack) {
+	this.items = initialStack || [];
 }
 
 Stack.prototype.push = function(data) {
@@ -8,6 +8,18 @@ Stack.prototype.push = function(data) {
 
 Stack.prototype.pop = function() {
 	return this.items.pop();
+};
+
+Stack.prototype.list = function() {
+	return this.items;
+};
+
+Stack.prototype.length = function() {
+	return this.items.length;
+};
+
+Stack.prototype.top = function() {
+	return this.items[this.items.length - 1];
 };
 
 Stack.prototype.isEmpty = function() {
