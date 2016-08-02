@@ -1,5 +1,5 @@
 //You have an array of value like so:
-var values = [5, 8, 0, 10];
+var values = [100, 700, 0, 0, 700, 100];
 
 //What is the maximum value of this arary, but the catch is that you can't sum up contiguous values. For instance: You can't do 5 + 8, becausethey sit next to each other You can do 8 and 10 though, which is 18.
 
@@ -17,17 +17,17 @@ max[2] = (values[2] + max[0] > values[1]) ? values[2] + max[0] : values[1];
 //repeat this logic for houses[3]...
 max[3] = (values[3] + max[1] > values[2]) ? values[3] + max[1] : values[2];
 
-console.log(max);
+// console.log(max);
 
 function max_value(arr) {
 	var max = [arr[0], arr[1]];
 	for (var i = 2; i < arr.length; i++) {
-		max[i] = (arr[i] + max[i-2] > arr[i-1] ? arr[i] + max[i-2] : arr[i-1]);
+		max[i] = (arr[i] + max[i-2] > max[i-1] ? arr[i] + max[i-2] : max[i-1]);
 	}
-	return max;
+	return max[max.length - 1];
 }
 
 console.log(max_value(values));
 
-console.log(max_value([1,5]));
-console.log(max_value([1,0,0,0,19,10]))
+// console.log(max_value([1,5]));
+// console.log(max_value([1,0,0,0,19,10]))
