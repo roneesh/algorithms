@@ -10,11 +10,11 @@ var Queue = require('./queue');
 	/	  \
    3	  4
 */
-//So in this graph, node 0 only connects to node 1
+//So in this graph, node 0 connects to node 1, 2
 //node 1 connects to node 0, 3
 //node 3 connects to 1, 2
 //node 2 connects to 3 only
-// this graph is represented as:
+// this graph is represented by an ADJACENCY LIST as:
 var fourNodeGraph = [
 	[1,2],	// node 0, connects to node 1 & 2
 	[0,3],	// node 1, connects to node 0 & 3
