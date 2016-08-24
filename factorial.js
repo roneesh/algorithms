@@ -1,7 +1,11 @@
+// Implementing recursive factoring in one line with a ternary
 function factorial(n) {
-	if (n === 1) return n;
-
-	return n * factorial(n-1);
+	return (n === 1) ? n : n * factorial(n - 1);
 }
+console.log(factorial(30))
 
-console.log(factorial(30));
+// Attaching it to the Math object for fun
+Math.factorial = function(n) {
+	return (n === 1) ? n : n * factorial(n - 1);
+}
+console.log(Math.factorial(30))
