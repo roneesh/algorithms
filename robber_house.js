@@ -10,7 +10,7 @@ var max = [values[0], values[1]];
 //-> [5,8];
 
 //now for item 3 (index 2) of max, the value we put in here can be one of the following:
-//1. It could be the number at values[2] (which is 0) PLUS the number 5, which is values[0], 5 + 0 = 5;
+//1. It could be the number at values[2] (which is 0) PLUS the values[0] (which is 5), 0 + 5 = 5;
 //2. Or it could be just the number at values[1], which is 8. The reason it can only be just this value is that you could not add 8 and 0, they sit next to each other.
 max[2] = (values[2] + max[0] > values[1]) ? values[2] + max[0] : values[1];
 
